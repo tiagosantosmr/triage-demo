@@ -24,6 +24,11 @@ def test_parse_line_rejects_non_positive_quantity():
         parse_line("SKU1:0:500")
 
 
+def test_parse_line_rejects_negative_price():
+    with pytest.raises(ParseError):
+        parse_line("SKU1:1:-500")
+
+
 def test_parse_feed_skips_blank_lines():
     items = parse_feed(["SKU1:1:500", "", "SKU2:2:250"])
     assert len(items) == 2

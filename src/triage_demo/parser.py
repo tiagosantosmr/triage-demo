@@ -21,6 +21,8 @@ def parse_line(raw: str) -> LineItem:
 
     if quantity <= 0:
         raise ParseError(f"quantity must be positive, got {quantity}")
+    if unit_price_cents < 0:
+        raise ParseError(f"unit price cannot be negative, got {unit_price_cents}")
 
     return LineItem(unit_price_cents=unit_price_cents, quantity=quantity)
 
