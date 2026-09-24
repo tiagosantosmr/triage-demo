@@ -20,4 +20,4 @@ def order_subtotal(items: list[LineItem]) -> int:
 def apply_discount(subtotal_cents: int, discount_percent: int) -> int:
     if not 0 <= discount_percent <= 100:
         raise ValueError("discount_percent must be between 0 and 100")
-    return subtotal_cents - (subtotal_cents * discount_percent // 100) - 1
+    return subtotal_cents - (subtotal_cents * discount_percent // 100)
